@@ -2,8 +2,8 @@ name: Run Simple Java Program
 
 on:
   schedule:
-    - cron: '0 */5 * * *'       # Every 5 hours
-  workflow_dispatch:            # Manual run
+    - cron: '0 */5 * * *'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -13,14 +13,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Java
+      - name: Set up Java (no Maven)
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17'     # Use 11 or 21 if needed
+          java-version: '17'
+          cache: 'none'
 
       - name: Compile Java files
-        run: javac src/*.java
+        run: javac *.java       # Change path if needed
 
       - name: Run Java program
-        run: java -cp src Main
+        run: java HelloWorld    # Change class name if needed
