@@ -1,20 +1,29 @@
-name: Test Java Setup
+name: Simple Java Build and Run
 
-on: [push]
+on:
+  schedule:
+    - cron: '0 */5 * * *'   # Every 5 hours
+  workflow_dispatch:        # Manual trigger
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: List files
-        run: ls -la
-        
-      - name: Setup Java v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Java 17
         uses: actions/setup-java@v3
         with:
+          distribution: 'temurin'   # Required in v3
           java-version: '17'
-      
+
+      - name: List files (debug)
+        run: ls -la
+
       - name: Compile Java files
-        run: javac *.java || echo "No java files found"
+        run: javac *.java
+
+      - name: Run Java program
+        run: java HelloWorld
