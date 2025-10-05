@@ -1,0 +1,26 @@
+name: Run Simple Java Program
+
+on:
+  schedule:
+    - cron: '0 */5 * * *'       # Every 5 hours
+  workflow_dispatch:            # Manual run
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'     # Use 11 or 21 if needed
+
+      - name: Compile Java files
+        run: javac src/*.java
+
+      - name: Run Java program
+        run: java -cp src Main
