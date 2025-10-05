@@ -12,16 +12,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Set up Java no Maven
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-          cache: 'none'
-          maven-settings: 'none'
+      # - name: Set up Java no Maven
+      #   uses: actions/setup-java@v3
+      #   with:
+      #     distribution: 'temurin'
+      #     java-version: '17'
+      #     cache: 'none'
+      #     maven-settings: 'none'
       
-      - name: Compile Java files
-        run: javac *.java
+      # - name: Compile Java files
+      #   run: javac *.java
       
-      - name: Run Java program
-        run: java HelloWorld
+      # - name: Run Java program
+      #   run: java HelloWorld
