@@ -1,4 +1,4 @@
-name: Run Simple Java Program
+name: Java Simple Build
 
 on:
   schedule:
@@ -10,19 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Java (no Maven)
+      - uses: actions/checkout@v3
+      
+      - name: Set up Java no Maven
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
           cache: 'none'
-          maven-settings: 'none'   # try adding this
-
+          maven-settings: 'none'
+      
       - name: Compile Java files
-        run: javac *.java       # Change path if needed
-
+        run: javac *.java
+      
       - name: Run Java program
-        run: java HelloWorld    # Change class name if needed
+        run: java HelloWorld
