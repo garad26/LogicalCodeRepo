@@ -23,7 +23,9 @@ jobs:
         run: ls -la
 
       - name: Compile Java files
-        run: javac *.java
+        run: javac src/*.java
 
       - name: Run Java program
-        run: java HelloWorld
+        run: |
+          java -cp src int_1_prog_gh
+          java -cp src TestDemo02_gh
