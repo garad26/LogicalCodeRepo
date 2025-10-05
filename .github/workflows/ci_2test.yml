@@ -19,6 +19,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
           cache: 'none'
+          maven-settings: 'none'   # try adding this
 
       - name: Compile Java files
         run: javac *.java       # Change path if needed
