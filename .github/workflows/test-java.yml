@@ -26,6 +26,6 @@ jobs:
         run: javac src/*.java
 
       - name: Run Java program
-        run: |
+        run: | 
           java -cp src int_1_prog_gh
           java -cp src TestDemo02_gh 
