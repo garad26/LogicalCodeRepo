@@ -28,4 +28,4 @@ jobs:
       - name: Run Java program
         run: |
           java -cp src int_1_prog_gh
-          java -cp src TestDemo02_gh
+          java -cp src TestDemo02_gh 
